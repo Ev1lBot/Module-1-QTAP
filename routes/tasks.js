@@ -44,4 +44,4 @@ router.post("/delete-list/:listId", (req, res) => {
   res.redirect("/");
 });
 
-export {router};
+export default router;
