@@ -44,6 +44,7 @@ router.post("/delete-list/:listId", (req, res) => {
   res.redirect("/");
 });
 
+//Змінити статус задачі
 router.post("/change-status/:listId/:taskId/:status", (req, res) => {
     const { listId, taskId, status } = req.params;
     const list = lists.find((l) => l.id == listId);

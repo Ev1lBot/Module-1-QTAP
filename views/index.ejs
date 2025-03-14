@@ -21,7 +21,6 @@
         <select name="status">
           <option value="todo">To Do</option>
           <option value="in-progress">In Progress</option>
-          <option value="done">Done</option>
         </select>
         <button type="submit">Додати</button>
       </form>
@@ -33,12 +32,14 @@
           <% list.tasks.filter(task => task.status === 'todo').forEach(task => { %>
             <div class="task">
               <p><%= task.title %></p>
-              <form action="/delete-task/<%= list.id %>/<%= task.id %>" method="POST">
-                <button type="submit">❌</button>
-              </form>
-              <form action="/change-status/<%= list.id %>/<%= task.id %>/in-progress" method="POST">
-                <button type="submit">❌</button>
-              </form>
+              <div>
+                  <form action="/delete-task/<%= list.id %>/<%= task.id %>" method="POST">
+                    <button type="submit">Delete</button>
+                  </form>
+                  <form action="/change-status/<%= list.id %>/<%= task.id %>/in-progress" method="POST">
+                    <button type="submit">In progress</button>
+                  </form>
+              </div>
             </div>
           <% }) %>
         </div>
@@ -46,18 +47,24 @@
           <h4>In Progress</h4>
           <% list.tasks.filter(task => task.status === 'in-progress').forEach(task => { %>
             <div class="task"><p><%= task.title %></p>
-                <form action="/delete-task/<%= list.id %>/<%= task.id %>" method="POST">
-                    <button type="submit">❌</button>
-                </form>
+                <div>
+                    <form action="/delete-task/<%= list.id %>/<%= task.id %>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form action="/change-status/<%= list.id %>/<%= task.id %>/done" method="POST">
+                        <button type="submit">Done</button>
+                    </form>
+                </div>
             </div>
           <% }) %>
         </div>
         <div class="column">
           <h4>Done</h4>
           <% list.tasks.filter(task => task.status === 'done').forEach(task => { %>
-            <div class="task"><p><%= task.title %></p>
+            <div class="task">
+                <p><%= task.title %></p>
                 <form action="/delete-task/<%= list.id %>/<%= task.id %>" method="POST">
-                    <button type="submit">❌</button>
+                    <button type="submit">Delete</button>
                 </form>
             </div>
           <% }) %>
