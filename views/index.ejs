@@ -1,0 +1,57 @@
+<h2>Менеджер задач</h2>
+
+<!-- Додати список -->
+<form action="/add-list" method="POST">
+  <input type="text" name="title" placeholder="Назва списку" required>
+  <button type="submit">Додати список</button>
+</form>
+
+<div class="lists">
+  <% lists.forEach(list => { %>
+    <div class="list">
+      <h3><%= list.title %></h3>
+      <form action="/delete-list/<%= list.id %>" method="POST">
+        <button type="submit">🗑 Видалити список</button>
+      </form>
+
+      <!-- Форма для додавання задач -->
+      <form action="/add-task" method="POST">
+        <input type="hidden" name="listId" value="<%= list.id %>">
+        <input type="text" name="title" placeholder="Нова задача" required>
+        <select name="status">
+          <option value="todo">To Do</option>
+          <option value="in-progress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+        <button type="submit">Додати</button>
+      </form>
+
+      <!-- Відображення задач у списку -->
+      <div class="columns">
+        <div class="column">
+          <h4>To Do</h4>
+          <% list.tasks.filter(task => task.status === 'todo').forEach(task => { %>
+            <div class="task">
+              <p><%= task.title %></p>
+              <form action="/delete-task/<%= list.id %>/<%= task.id %>" method="POST">
+                <button type="submit">❌</button>
+              </form>
+            </div>
+          <% }) %>
+        </div>
+        <div class="column">
+          <h4>In Progress</h4>
+          <% list.tasks.filter(task => task.status === 'in-progress').forEach(task => { %>
+            <div class="task"><p><%= task.title %></p></div>
+          <% }) %>
+        </div>
+        <div class="column">
+          <h4>Done</h4>
+          <% list.tasks.filter(task => task.status === 'done').forEach(task => { %>
+            <div class="task"><p><%= task.title %></p></div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
