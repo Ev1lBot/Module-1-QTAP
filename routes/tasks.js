@@ -8,7 +8,7 @@ let lists = [
 
 // Отримати всі списки та задачі
 router.get("/", (req, res) => {
-  res.render("index.ejs", { lists });
+  res.render("layout.ejs", { lists });
 });
 
 // Додати новий список
