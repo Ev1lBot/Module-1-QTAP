@@ -1,6 +1,6 @@
 import request from "supertest";
 import express from "express";
-import taskRoutes from "../routes/tasks";
+import taskRoutes from "../routes/tasks.js";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -15,7 +15,7 @@ describe("Task Manager API", () => {
 
   test("POST /add-list - додати список", async () => {
     const response = await request(app).post("/add-list").send({ title: "Новий список" });
-    expect(response.status).toBe(302);
+    expect(response.status).toBe(302); // Перенаправлення після додавання
   });
 
   test("POST /add-task - додати задачу в список", async () => {
