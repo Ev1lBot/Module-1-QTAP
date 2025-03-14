@@ -1,6 +1,6 @@
-import request from "supertest";
-import express from "express";
-import taskRoutes from "../routes/tasks.js";
+const request = require("supertest");
+const express = require("express");
+const taskRoutes = require("../routes/tasks");
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));

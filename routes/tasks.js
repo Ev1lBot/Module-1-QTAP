@@ -1,4 +1,4 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
 
 let lists = [
@@ -8,7 +8,7 @@ let lists = [
 
 // Отримати всі списки та задачі
 router.get("/", (req, res) => {
-  res.render("index", { lists });
+  res.render("index.ejs", { lists });
 });
 
 // Додати новий список
@@ -44,4 +44,4 @@ router.post("/delete-list/:listId", (req, res) => {
   res.redirect("/");
 });
 
-export default router;
+module.exports = router;
