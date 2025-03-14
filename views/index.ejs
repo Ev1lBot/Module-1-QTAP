@@ -1,0 +1,39 @@
+<%- include('layout') %>
+
+<h2>Менеджер задач</h2>
+
+<form action="/add" method="POST">
+  <input type="text" name="title" placeholder="Назва задачі" required>
+  <select name="status">
+    <option value="todo">To Do</option>
+    <option value="in-progress">In Progress</option>
+    <option value="done">Done</option>
+  </select>
+  <button type="submit">Додати</button>
+</form>
+
+<div class="columns">
+  <div class="column">
+    <h3>To Do</h3>
+    <% tasks.filter(task => task.status === 'todo').forEach(task => { %>
+      <div class="task">
+        <p><%= task.title %></p>
+        <form action="/delete/<%= task.id %>" method="POST">
+          <button type="submit">Видалити</button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
+  <div class="column">
+    <h3>In Progress</h3>
+    <% tasks.filter(task => task.status === 'in-progress').forEach(task => { %>
+      <div class="task"><p><%= task.title %></p></div>
+    <% }) %>
+  </div>
+  <div class="column">
+    <h3>Done</h3>
+    <% tasks.filter(task => task.status === 'done').forEach(task => { %>
+      <div class="task"><p><%= task.title %></p></div>
+    <% }) %>
+  </div>
+</div>
