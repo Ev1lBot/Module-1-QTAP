@@ -36,4 +36,9 @@ describe("Task Manager API", () => {
     const response = await request(app).post("/delete-list/1");
     expect(response.status).toBe(302);
   });
+
+  test("POST /change-status/:listId/:taskId/:status - змінити статус", async () => {
+    const response = await request(app).post("/change-status/1/101/in-progress");
+    expect(response.status).toBe(302);
+  });
 });

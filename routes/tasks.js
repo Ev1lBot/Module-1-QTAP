@@ -44,4 +44,14 @@ router.post("/delete-list/:listId", (req, res) => {
   res.redirect("/");
 });
 
+router.post("/change-status/:listId/:taskId/:status", (req, res) => {
+    const { listId, taskId, status } = req.params;
+    const list = lists.find((l) => l.id == listId);
+    if(list){
+        const task = list.tasks.find((t) => t.id == taskId);
+        task.status = status;
+    }
+    res.redirect("/");
+});
+
 module.exports = router;

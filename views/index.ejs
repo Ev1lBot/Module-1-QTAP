@@ -36,19 +36,30 @@
               <form action="/delete-task/<%= list.id %>/<%= task.id %>" method="POST">
                 <button type="submit">❌</button>
               </form>
+              <form action="/change-status/<%= list.id %>/<%= task.id %>/in-progress" method="POST">
+                <button type="submit">❌</button>
+              </form>
             </div>
           <% }) %>
         </div>
         <div class="column">
           <h4>In Progress</h4>
           <% list.tasks.filter(task => task.status === 'in-progress').forEach(task => { %>
-            <div class="task"><p><%= task.title %></p></div>
+            <div class="task"><p><%= task.title %></p>
+                <form action="/delete-task/<%= list.id %>/<%= task.id %>" method="POST">
+                    <button type="submit">❌</button>
+                </form>
+            </div>
           <% }) %>
         </div>
         <div class="column">
           <h4>Done</h4>
           <% list.tasks.filter(task => task.status === 'done').forEach(task => { %>
-            <div class="task"><p><%= task.title %></p></div>
+            <div class="task"><p><%= task.title %></p>
+                <form action="/delete-task/<%= list.id %>/<%= task.id %>" method="POST">
+                    <button type="submit">❌</button>
+                </form>
+            </div>
           <% }) %>
         </div>
       </div>
