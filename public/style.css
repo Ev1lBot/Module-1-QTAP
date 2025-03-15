@@ -1,38 +1,61 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-  
-  .lists {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.lists {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.list {
+  width: 35%;
+  height: 100%;
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.list > *{
+    margin: 10px;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  width: 30%;
+  height: 100%;
+  background: #ddd;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.task {
+  background: white;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.task > div{
+    width: auto;
+    height: auto;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
-  }
-  
-  .list {
-    width: 30%;
-    background: #f4f4f4;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px;
-  }
-  
-  .columns {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .column {
-    width: 30%;
-    background: #ddd;
-    padding: 5px;
-    border-radius: 5px;
-  }
-  
-  .task {
-    background: white;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-  }
-  
+}
+
+button{
+    border-radius: 5%;
+    border: 0cm;
+    background-color: #f4f4f4;
+}
+button:hover{
+    background-color: #cfcece;
+}
