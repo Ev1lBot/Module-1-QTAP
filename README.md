@@ -37,5 +37,5 @@
 ## Діаграма послідовності
 ![image](https://www.plantuml.com/plantuml/png/RP2nJiGm38RtF8Lr4mo5_GPq2yDD88wAsJGM2j0sIW9Yf7HWO-h4m3DK20a4eho2_KQOqW6aJab-V_h-oAkOCAIhyj9WaUe0_CY3tFARD78dBJzpB_V6A-8Avx5Ai3YXKyZN2y2en__HXi8r1TZQl_61OjmvZziZzviRCoU7R4yzI-2E1txHf0D-vLwlEfJMv6ib9iCI3Wysnx2BrcO9uuMP2hF9SKJM1IeIf1fAT1LuFAFHeC1SkTO-yISF-lgG1wsMXhz-48tU__p3hAYokgHl)
 
-# Специфікація обмежень для системи. [Посилання на файл](specification)
+# Специфікація обмежень для системи. [Посилання на файл](spesification)
 ![image](https://github.com/user-attachments/assets/425c375d-4c22-4cce-967f-84e9bc8a7e95)
